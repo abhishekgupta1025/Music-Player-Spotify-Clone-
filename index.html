@@ -1,0 +1,710 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="./src/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-black">
+
+    <div class="top flex items-center h-[7vh] rounded-2xl p-2 mx-0.5 my-0.5 bg-black">
+        <div class="spotifylogo hover:cursor-pointer">
+            <img src="public/spotifylogo.svg" alt="Spotify Logo" class="h-10">
+        </div>
+        <button id="homebutton" onclick="makehome()">
+            <div
+                class="homebutton bg-[#1F1F1F] md:ml-[30vw] hover:bg-amber-800 rounded-full hover:cursor-pointer w-12 h-12 flex items-center justify-center">
+                <img src="public/homebutton.svg" alt="Home Button" class="h-7">
+            </div>
+        </button>
+
+        <div class="search items-center bg-[#1F1F1F] w-120 flex rounded-4xl m-1 p-1">
+            <div class="searchicon text-3xl ml-1">
+                <span class="material-symbols-outlined text-3xl! text-gray-300">    
+                    search
+                </span>
+            </div>
+            <div class="searchbar ml-2 w-[85%]">
+                <input type="text" id="search-input" placeholder="Search" class="search pr-2 outline-none border-none bg-transparent w-full text-white">
+            </div>
+
+            <div class="libraryicon mr-2">
+                <img src="public/libraryicon.svg" alt="Library Icon" class="h-7 ">
+            </div>
+
+        </div>
+        <div class="install flex items-center ml-[14vw] ">
+            <div class="installicon">
+                <img src="public/installicon.svg" alt="Install Icon" class="h-5">
+            </div>
+            <div class="installtext ml-2 text-gray-300 text-sm">
+                InstallApp
+            </div>
+        </div>
+        <div class="notificationicon ml-[3vw]">
+            <img src="public/notificationicon.svg" alt="Notification Icon" class="h-4.5">
+        </div>
+        <div class="friendsicon ml-[1.5vw]">
+            <img src="public/friendsicon.svg" alt="Friends Icon" class="h-4.5">
+        </div>
+
+        <div class="profile bg-gray-700 rounded-full ml-[3vw] w-12 h-12 flex items-center justify-center">
+            <div class="profileicon bg-pink-700 flex items-center justify-center text-white rounded-full w-10 h-10">
+                A
+            </div>
+        </div>
+    </div>
+
+    <div class="all flex h-[calc(86vh-2.5rem)]">
+
+        <div class="left md:w-[20%] w-[5%] mx-0.5 rounded-xl p-1 bg-[#121212] h-full">
+            <div class="first flex m-1 py-1 w-full">
+                <div class="text-white w-[70%] py-2 text-xl">
+                    YourLibrary
+                </div>
+                <button>
+                    <div
+                        class=" text-gray-300 text-3xl bg-gray-500 rounded-full w-9 h-9 flex items-center justify-center pb-1 leading-none hover:bg-gray-400 hover:text-white cursor-pointer">
+                        +
+                    </div>
+                </button>
+                <button>
+                    <div class="expandicon rounded-full w-9 ml-2 h-9 flex items-center justify-center">
+                        <img src="public/expandicon.svg" alt="Expand Icon" class="h-5">
+                    </div>
+                </button>
+
+            </div>
+            <div class="second flex py-1 w-full gap-1">
+                <div class="text-white bg-[#2A2A2A] rounded-3xl p-2 flex items-center justify-center">Playlists</div>
+                <div class="text-white bg-[#2A2A2A] rounded-3xl p-2 flex items-center justify-center">Artists</div>
+                <div class="text-white bg-[#2A2A2A] rounded-3xl p-2 flex items-center justify-center">Albums</div>
+            </div>
+            <div
+                class="third my-2 ml-2 h-[calc(100%-8rem)] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="searchicon text-gray-300 hover:text-white cursor-pointer w-[70%] mr-2">
+                        <span class="material-symbols-outlined text-sm!">search</span>
+                    </div>
+                    <div class="recentsbar flex items-center text-gray-300 hover:text-white cursor-pointer text-sm">
+                        <span class="mr-1">Recents</span>
+                    </div>
+                    <div class="recentsicon">
+                        <img src="public/recentsicon.svg" alt="Recents Icon" class="h-5">
+                    </div>
+                </div>
+
+                <!-- Library Items -->
+                <div class="flex flex-col gap-2">
+                    <!-- Liked Songs -->
+                    <div class="flex items-center p-2 rounded-md hover:bg-[#1A1A1A] cursor-pointer group">
+                        <img src="public/likedsongs.png" alt="Liked Songs" class="w-12 h-12 rounded-sm">
+                        <div class="ml-3">
+                            <div class="text-green-500! font-bold group-hover:text-green-400!">Liked Songs</div>
+                            <div class="text-sm text-gray-400 flex items-center">
+                                <span class="material-symbols-outlined text-green-700">
+                                    keep
+                                </span>
+                                <div class="flex items-center gap-1">
+                                    Playlist • 581 songs
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- My Blend -->
+                    <div class="flex items-center p-2 rounded-md hover:bg-[#1A1A1A] cursor-pointer">
+                        <img src="public/blend.png" alt="My Blend" class="w-12 h-12 rounded-sm">
+                        <div class="ml-3">
+                            <div class="text-white font-bold">My Blend</div>
+                            <div class="text-sm text-gray-400">Playlist • Spotify</div>
+                        </div>
+                    </div>
+
+                    <!-- Pop Off, Punk On -->
+                    <div class="flex items-center p-2 rounded-md hover:bg-[#1A1A1A] cursor-pointer">
+                        <img src="public/album_popoff.png" alt="Pop Off, Punk On" class="w-12 h-12 rounded-sm">
+                        <div class="ml-3">
+                            <div class="text-white font-bold">Pop Off, Punk On</div>
+                            <div class="text-sm text-gray-400">Playlist • Abhishek Gupta</div>
+                        </div>
+                    </div>
+
+                    <!-- Rap -->
+                    <div class="flex items-center p-2 rounded-md hover:bg-[#1A1A1A] cursor-pointer">
+                        <img src="public/album_popoff.png" alt="Rap" class="w-12 h-12 rounded-sm">
+                        <!-- Placeholder image -->
+                        <div class="ml-3">
+                            <div class="text-white font-bold">Rap</div>
+                            <div class="text-sm text-gray-400">Playlist • Abhishek Gupta</div>
+                        </div>
+                    </div>
+
+                    <!-- Life In A Metro -->
+                    <div class="flex items-center p-2 rounded-md hover:bg-[#1A1A1A] cursor-pointer">
+                        <img src="public/album_popoff.png" alt="Life In A Metro" class="w-12 h-12 rounded-sm">
+                        <!-- Placeholder image -->
+                        <div class="ml-3">
+                            <div class="text-white font-bold truncate w-[140px]">Life In A Metro (Original Mo...</div>
+                            <div class="text-sm text-gray-400">Album • Pritam</div>
+                        </div>
+                    </div>
+
+                    <!-- Soft -->
+                    <div class="flex items-center p-2 rounded-md hover:bg-[#1A1A1A] cursor-pointer">
+                        <img src="public/album_popoff.png" alt="Soft" class="w-12 h-12 rounded-sm">
+                        <!-- Placeholder image -->
+                        <div class="ml-3">
+                            <div class="text-white font-bold">Soft</div>
+                            <div class="text-sm text-gray-400">Playlist • Abhishek Gupta</div>
+                        </div>
+                    </div>
+
+                    <!-- Artist -->
+                    <div class="flex items-center p-2 rounded-md hover:bg-[#1A1A1A] cursor-pointer">
+                        <div class="w-12 h-12 rounded-full overflow-hidden">
+                            <img src="public/artist_abhijeet.png" alt="Abhijeet Srivastava"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-3">
+                            <div class="text-white font-bold">Abhijeet Srivastava</div>
+                            <div class="text-sm text-gray-400">Artist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            id="searchresults" class="middle pl-5 w-[50%] border-gray-500 mx-0.5 rounded-xl bg-[#121212] h-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div
+                class="first py-3 rounded-t-xl flex gap-2 sticky top-0 bg-[#121212] z-10 transition-colors duration-200">
+                <div
+                    class="rounded-full px-3 py-1 bg-[#2A2A2A] text-white text-sm font-bold hover:bg-[#3E3E3E] cursor-pointer transition-colors">
+                    All</div>
+                <div
+                    class="rounded-full px-3 py-1 bg-[#2A2A2A] text-white text-sm font-bold hover:bg-[#3E3E3E] cursor-pointer transition-colors">
+                    Music</div>
+                <div
+                    class="rounded-full px-3 py-1 bg-[#2A2A2A] text-white text-sm font-bold hover:bg-[#3E3E3E] cursor-pointer transition-colors">
+                    Podcasts</div>
+            </div>
+
+            <div class="second flex gap-5 items-center justify-center">
+                <div class="1 bg-[#3A3651] w-[35%]">
+                    <div class="flex items-center">
+                        <img src="public/album_popoff.png" alt="Pop Off, Punk On" class="w-12 h-12 rounded-sm">
+                        <div class="text-white font-bold text-sm">Pop Off, Punk On</div>
+                    </div>
+                </div>
+                <div class="2 bg-[#3A3651] w-[35%]">
+                    <div class="flex items-center">
+                        <img src="public/album_popoff.png" alt="Pop Off, Punk On" class="w-12 h-12 rounded-sm">
+                        <div class="text-white font-bold text-sm">Pop Off, Punk On</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third flex justify-between items-end px-4 my-4">
+                <div class="text-white text-2xl font-bold hover:underline cursor-pointer">Popular Songs</div>
+                <button>
+                    <div class="text-[#b3b3b3] text-sm font-bold hover:text-white hover:underline cursor-pointer">Show
+                        all</div>
+                </button>
+            </div>
+            <div id="song-list-container"
+                class="four flex gap-5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/dw/cover/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="five flex justify-between items-end px-4 my-4">
+                <div class="text-white text-2xl font-bold hover:underline cursor-pointer">Popular artists</div>
+                <button>
+                    <div class="text-[#b3b3b3] text-sm font-bold hover:text-white hover:underline cursor-pointer">Show
+                        all</div>
+                </button>
+            </div>
+
+            <div
+                class="six flex gap-5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/dw/cover/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="five flex justify-between items-end px-4 my-4">
+                <div class="text-white text-2xl font-bold hover:underline cursor-pointer">Popular artists</div>
+                <button>
+                    <div class="text-[#b3b3b3] text-sm font-bold hover:text-white hover:underline cursor-pointer">Show
+                        all</div>
+                </button>
+            </div>
+
+            <div
+                class="eight flex gap-5 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/dw/cover/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+                <div class="shrink-0 w-36">
+                    <div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/daily/1/ab6761610000e5ebcb6926f44f620555ba444fca/en"
+                            alt="Pickasso_pic" class="h-36 w-full object-cover">
+                    </div>
+                    <div class="text-white flex flex-wrap">
+                        some text about the images
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div
+            class="right w-[29%] border-gray-500 mx-0.5 rounded-xl py-1 px-5 bg-[#121212] h-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div class="first my-3 flex items-center">
+                <button>
+                    <div>
+                        <img src="./expand.svg" alt="expand" class="w-5">
+                    </div>
+                </button>
+
+                <div class="font-bold ml-2 text-white text-lg w-[80%]">
+                    Currently Playing
+                </div>
+
+                <div>
+                    <img src="./threedot.svg" alt="threedot" class="w-4">
+                </div>
+                <button class="ml-4">
+                    <div>
+                        <img src="./public/expandicon.svg" alt="expandicon" class="w-4">
+                    </div>
+                </button>
+
+            </div>
+            <div id="rightsideimage" class="second my-3">
+                <div
+                    class="w-full aspect-square bg-linear-to-br from-gray-800 to-black rounded-lg flex items-center justify-center border border-gray-700">
+                    <span class="text-white font-bold tracking-widest text-xl animate-pulse">Preview Image</span>
+                </div>
+            </div>
+
+            <div
+                class="third flex items-center p-2 rounded-full w-fit bg-[#2A2A2A] hover:bg-[#3E3E3E] my-4 cursor-pointer">
+                <div class="px-1">
+                    <img src="./videoicon.svg" alt="videoicon" class="w-5">
+                </div>
+                <div class="text-white px-2 font-bold text-sm">Switch to video</div>
+            </div>
+
+            <div class="four flex items-center my-6">
+                <div id="righttext" class="font-bold text-white text-3xl w-[80%] hover:underline cursor-pointer">
+                    <!-- Rock on -->
+                </div>
+                <button class="ml-2">
+                    <span
+                        class="material-symbols-outlined mt-1 text-gray-400 hover:text-white transition-colors cursor-pointer">
+                        ios_share
+                    </span>
+                </button>
+                <button class="ml-3">
+                    <img src="./tick.svg" alt="tick" class="w-6 cursor-pointer">
+                </button>
+            </div>
+
+            <div class="credits mt-5 bg-[#242424] rounded-xl p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="text-white font-bold text-lg text-[1.1rem]">Credits</div>
+                    <div
+                        class="text-gray-400 font-bold text-sm hover:underline hover:text-white cursor-pointer transition-colors">
+                        Show all</div>
+                </div>
+
+                <!-- Artist 1 -->
+                <div class="flex justify-between items-center mb-5">
+                    <div>
+                        <div class="text-white font-bold text-[0.95rem] hover:underline cursor-pointer">Asha Bhosle
+                        </div>
+                        <div class="text-gray-400 text-sm mt-0.5">Main Artist</div>
+                    </div>
+                    <button
+                        class="text-white border border-gray-500 rounded-full px-4 py-1.5 text-sm font-bold hover:scale-105 hover:border-white transition-all">
+                        Follow
+                    </button>
+                </div>
+
+                <!-- Artist 2 -->
+                <div class="flex justify-between items-center mb-5">
+                    <div>
+                        <div class="text-white font-bold text-[0.95rem] hover:underline cursor-pointer">Mohammed Rafi
+                        </div>
+                        <div class="text-gray-400 text-sm mt-0.5">Main Artist</div>
+                    </div>
+                    <button
+                        class="text-white border border-gray-500 rounded-full px-4 py-1.5 text-sm font-bold hover:scale-105 hover:border-white transition-all">
+                        Follow
+                    </button>
+                </div>
+
+                <!-- Artist 3 -->
+                <div class="flex justify-between items-center mb-1">
+                    <div>
+                        <div class="text-white font-bold text-[0.95rem] hover:underline cursor-pointer">R. D. Burman
+                        </div>
+                        <div class="text-gray-400 text-sm mt-0.5">Main Artist, Composer</div>
+                    </div>
+                    <button
+                        class="text-white border border-gray-500 rounded-full px-4 py-1.5 text-sm font-bold hover:scale-105 hover:border-white transition-all">
+                        Follow
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom flex items-center bg-black h-[10vh] p-2 mx-0.5 my-1 rounded-2xl">
+        <div class="first items-center flex w-[20%]">
+            <div id="bottomsideimage">
+                <div
+                    class="w-16 h-16 bg-linear-to-br from-gray-800 to-black rounded-xl flex items-center justify-center border border-gray-700">
+                    <span
+                        class="text-white font-bold tracking-widest text-[0.5rem] text-center leading-tight animate-pulse">Preview<br>Image</span>
+                </div>
+            </div>
+            <div id="bottomtext" class="text-white text-sm ml-2">
+                <!-- Abhi Kuch Dino Se -->
+            </div>
+            <div class="ml-5 items-center mt-2">
+                <button>
+                    <img src="tick.svg" alt="tick" class="w-5 cursor-pointer">
+                </button>
+            </div>
+        </div>
+
+        <div class="second flex flex-col items-center justify-center w-[60%]">
+            <div class="controls flex items-center justify-center w-full gap-5">
+                <div>
+                    <span class="material-symbols-outlined text-white">
+                        shuffle
+                    </span>
+                </div>
+                <div>
+                    <span onclick="prevSong()" class="material-symbols-outlined text-white hover:cursor-pointer">
+                        skip_previous
+                    </span>
+                </div>
+                <div>
+                    <span id="play-icon" onclick="playPause()"
+                        class="material-symbols-outlined hover:cursor-pointer text-white">
+                        play_arrow
+                    </span>
+                </div>
+                <div>
+                    <span onclick="nextSong()" class="material-symbols-outlined text-white hover:cursor-pointer">
+                        skip_next
+                    </span>
+                </div>
+                <div>
+                    <span onclick="repeatSong()" class="material-symbols-outlined text-white hover:cursor-pointer">
+                        repeat
+                    </span>
+                </div>
+            </div>
+            <div class="player flex items-center justify-center w-full mt-2 gap-2">
+                <div id="current-time" class="text-[0.7rem] text-[#a7a7a7] font-medium">0:00</div>
+                <div class="w-[35%] h-1 bg-[#4d4d4d] rounded-full cursor-pointer group hover:h-1.5 transition-all"
+                    onclick="seekSong(event)">
+                    <div id="seek-bar" class="w-0 h-full bg-white rounded-full group-hover:bg-[#1db954] relative">
+                    </div>
+                </div>
+                <div id="total-duration" class="text-[0.7rem] text-[#a7a7a7] font-medium">4:12</div>
+            </div>
+        </div>
+
+        <div class="third w-[20%] flex justify-end items-center gap-3 pr-4">
+            <span class="material-symbols-outlined text-[#a7a7a7] hover:text-white cursor-pointer text-[1.2rem]"
+                title="Lyrics">mic</span>
+            <span class="material-symbols-outlined text-[#a7a7a7] hover:text-white cursor-pointer text-[1.2rem]"
+                title="Queue">queue_music</span>
+            <span class="material-symbols-outlined text-[#a7a7a7] hover:text-white cursor-pointer text-[1.2rem]"
+                title="Connect to a device">devices</span>
+
+            <div id="volumeBar" class="flex items-center gap-2 group">
+                <span
+                    class="material-symbols-outlined text-[#a7a7a7] hover:text-white cursor-pointer text-[1.2rem]">volume_up</span>
+                <div class="w-24 h-1 bg-[#4d4d4d] rounded-full cursor-pointer hover:h-1.5 transition-all"
+                    onclick="setVolume(event)">
+                    <div id="volume-bar" class="w-[70%] h-full bg-white rounded-full group-hover:bg-[#1db954]"></div>
+                </div>
+            </div>
+
+            <span class="material-symbols-outlined text-[#a7a7a7] hover:text-white cursor-pointer text-[1.2rem]"
+                title="Miniplayer">picture_in_picture_alt</span>
+            <span class="material-symbols-outlined text-[#a7a7a7] hover:text-white cursor-pointer text-[1.2rem]"
+                title="Full screen">open_in_full</span>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
