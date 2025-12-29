@@ -47,7 +47,7 @@ Before running the project, ensure you have the following installed:
     Create a `.env` file in the root directory (if required by backend logic, e.g., DB URI).
     ```env
     # Example
-    PORT=3000
+    PORT=4000
     MONGO_URI=mongodb://localhost:27017/spotify_clone
     ```
 
